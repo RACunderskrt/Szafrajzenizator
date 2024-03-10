@@ -1,0 +1,29 @@
+GET http://localhost:4000/station
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJWSUVXX1NUQVRJT04iLCJWSUVXX0xBQkVMIiwiQ0hBTkdFX0xBQkVMIiwiQ0hBTkdFX1NUQVRJT04iXSwiaWF0IjoxNzAyMzIzNTc4LCJleHAiOjE3MDIzMjQxNzh9.z3a-AZanez4pycHXHi1w5LLq7pOhXgWbte8tQzu8UaE
+
+###
+#Veuillez regarder compte.txt pour voir quel compte possède quel droit pour vos tests
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"admin"
+}
+
+###
+POST http://localhost:5000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJyb2xlcyI6WyJWSUVXX1NUQVRJT04iLCJWSUVXX0xBQkVMIiwiQ0hBTkdFX0xBQkVMIiwiQ0hBTkdFX1NUQVRJT04iXSwiaWF0IjoxNzAyMzE3NzgxfQ.0m-bw2sLJzt4XtraeUeALgCkzl7DnC8EJxWsYWMjdU4"
+}
+###
+DELETE http://localhost:5000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidmlld0wiLCJyb2xlcyI6WyJWSUVXX0xBQkVMIl0sImlhdCI6MTcwMjMwOTA5M30.7ijz9spYXHDxjQzk0P9xI25Jn_9W3jms5A-0ZVxk7YQ"
+}
+
+###

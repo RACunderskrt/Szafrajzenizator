@@ -1,0 +1,14 @@
+login : admin pwd : admin
+Tous les droits
+
+login : station pwd : station
+Tous les droits sur les stations
+
+login : label pwd : label
+Tous les droits sur les labels
+
+login : viewL pwd : viewL
+Seulement l'accès aux données de label
+
+login : viewS pwd : viewS
+Seulement l'accès aux données de station
