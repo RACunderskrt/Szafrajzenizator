@@ -54,7 +54,6 @@ export default {
     },
     mounted(){
         this.refreshData();
-        this.getDate()
     },
     methods:{
         test(){
@@ -126,7 +125,7 @@ export default {
 
         getDate(){
             let date = new Date()
-            return date.toISOString().slice(11,16) + " " + date.getDate() + '/' + date.toISOString().slice(5,7) + '/' + date.getUTCFullYear()
+            return date.getHours() + ":" + date.getMinutes() + " " + date.getDate() + '/' + date.toISOString().slice(5,7) + '/' + date.getUTCFullYear()
         },
 
         async refreshData(){
