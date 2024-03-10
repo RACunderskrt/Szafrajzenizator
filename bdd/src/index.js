@@ -31,7 +31,7 @@ app.get('/names', async (req, res) => {
 });
 
 app.post('/names', async (req, res) => {
-    let request = `INSERT OR IGNORE INTO test(names, date) VALUES('${req.body.names}','${req.body.date}')`
+    let request = `INSERT INTO test(names, date) VALUES('${req.body.names}','${req.body.date}')`
     console.log(request)
     const result = await pool.query(request);
     res.json(result);
