@@ -102,6 +102,7 @@ export default {
             bufName = bufName.replaceAll("`","")
             bufName = bufName.replaceAll("$","")
             bufName = bufName.replaceAll("\"","")
+            return bufName
         },
 
         checkLetter(i, y){
