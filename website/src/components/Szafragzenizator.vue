@@ -45,7 +45,7 @@ export default {
     name: 'Szafragzenizator',
     data(){
         return{
-            name: "safragen",
+            name: "",
             db: undefined,
             data: [],
             displayError: false,
