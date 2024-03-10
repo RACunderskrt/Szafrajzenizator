@@ -77,11 +77,14 @@ export default {
                    
             }
             bufName += this.name[this.name.length-1]
+            bufName = this.cleanName(bufName)
+            
             let newObj = {
                     names:bufName,
                     date:this.getDate()
                 }
-            this.data.push(newObj)
+            this.refreshData()
+
             const reponse = await fetch("https://szafrajzenizator.onrender.com/names", {
                 method: "POST", // ou 'PUT'
                 headers: {
@@ -91,6 +94,14 @@ export default {
             });
             this.newName = bufName
             this.displayNewName = true;
+        },
+
+        cleanName(bufName){
+            bufName = bufName.replaceAll("'","")
+            bufName = bufName.replaceAll(" ","")
+            bufName = bufName.replaceAll("`","")
+            bufName = bufName.replaceAll("$","")
+            bufName = bufName.replaceAll("\"","")
         },
 
         checkLetter(i, y){
@@ -114,14 +125,12 @@ export default {
 
         getDate(){
             let date = new Date()
-            return date.toISOString().slice(11,16) + " " + date.getDate() + '/' + date.toISOString().slice(5,7) + '/' + date.getYear()
-
+            return date.toISOString().slice(11,16) + " " + date.getDate() + '/' + date.toISOString().slice(5,7) + '/' + date.getUTCFullYear()
         },
 
         async refreshData(){
             let response = await fetch("https://szafrajzenizator.onrender.com/names")
             response = await response.json()
-            console.log(response)
             this.data = response
         }
     }
