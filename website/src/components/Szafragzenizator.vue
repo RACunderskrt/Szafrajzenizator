@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <h1 class="title">Szafragzenizator</h1>
+        <h1 class="title">Szafrajzenizator</h1>
         <hr/>
         <div class="menu">
             <input
