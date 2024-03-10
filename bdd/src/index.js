@@ -1,4 +1,4 @@
-import { connectSQlite } from '../db/openDb.js'
+import { pool } from '../db/db.js'
 
 import express from 'express'
 import cors from 'cors'
@@ -11,8 +11,6 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
-
-let db = await connectSQlite()
 
 app.get('/', (req, res) => {
     res.json({
@@ -27,16 +25,15 @@ app.get('/debut', (req, res) => {
 });
 
 app.get('/names', async (req, res) => {
-
-    let request = "SELECT * FROM test ORDER BY oui DESC"
-    const result = await db.all(request)
-    res.json(result);
+    let request = "SELECT * FROM test ORDER BY id DESC"
+    const result = await pool.query(request)
+    res.json(result.rows);
 });
 
 app.post('/names', async (req, res) => {
     let request = `INSERT OR IGNORE INTO test(names, date) VALUES('${req.body.names}','${req.body.date}')`
     console.log(request)
-    const result = await db.run(request);
+    const result = await pool.query(request);
     res.json(result);
 });
 
