@@ -46,7 +46,6 @@ export default {
     data(){
         return{
             name: "",
-            db: undefined,
             data: [],
             displayError: false,
             newName: "",
@@ -77,23 +76,26 @@ export default {
                    
             }
             bufName += this.name[this.name.length-1]
+            console.log(bufName)
             bufName = this.cleanName(bufName)
-            
+            console.log(bufName)
             let newObj = {
                     names:bufName,
                     date:this.getDate()
                 }
-            this.refreshData()
+           
 
             const reponse = await fetch("https://szafrajzenizator.onrender.com/names", {
-                method: "POST", // ou 'PUT'
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(newObj),
             });
+            console.log("att quoi ?")
             this.newName = bufName
             this.displayNewName = true;
+            await this.refreshData()
         },
 
         cleanName(bufName){
@@ -133,6 +135,7 @@ export default {
             let response = await fetch("https://szafrajzenizator.onrender.com/names")
             response = await response.json()
             this.data = response
+            console.log(response)
         }
     }
 }
