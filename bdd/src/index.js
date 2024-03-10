@@ -37,6 +37,7 @@ app.post('/names', async (req, res) => {
     let request = `INSERT OR IGNORE INTO test(names, date) VALUES('${req.body.names}','${req.body.date}')`
     console.log(request)
     const result = await db.run(request);
+    res.json(result);
 });
 
 

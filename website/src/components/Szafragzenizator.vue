@@ -76,14 +76,13 @@ export default {
                    
             }
             bufName += this.name[this.name.length-1]
-            console.log(bufName)
+            
             bufName = this.cleanName(bufName)
-            console.log(bufName)
+            
             let newObj = {
                     names:bufName,
                     date:this.getDate()
                 }
-           
 
             const reponse = await fetch("https://szafrajzenizator.onrender.com/names", {
                 method: "POST",
@@ -92,7 +91,6 @@ export default {
                 },
                 body: JSON.stringify(newObj),
             });
-            console.log("att quoi ?")
             this.newName = bufName
             this.displayNewName = true;
             await this.refreshData()
