@@ -113,7 +113,7 @@ export default {
         },
 
         verifyInput(){
-            if(this.name.length < 3 || this.name.length > 17){
+            if(this.name.length < 3 || this.name.length > 30){
                 this.displayError = true
                 return false
             }
