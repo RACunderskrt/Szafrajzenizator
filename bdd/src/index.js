@@ -28,7 +28,7 @@ app.get('/debut', (req, res) => {
 
 app.get('/names', async (req, res) => {
 
-    let request = "SELECT * FROM test"
+    let request = "SELECT * FROM test ORDER BY oui DESC"
     const result = await db.all(request)
     res.json(result);
 });
