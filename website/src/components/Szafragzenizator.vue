@@ -82,7 +82,7 @@ export default {
                     date:this.getDate()
                 }
             this.data.push(newObj)
-            const reponse = await fetch("http://localhost:4000/names", {
+            const reponse = await fetch("https://szafrajzenizator.onrender.com/names", {
                 method: "POST", // ou 'PUT'
                 headers: {
                     "Content-Type": "application/json",
@@ -119,7 +119,7 @@ export default {
         },
 
         async refreshData(){
-            let response = await fetch("http://localhost:4000/names")
+            let response = await fetch("https://szafrajzenizator.onrender.com/names")
             response = await response.json()
             console.log(response)
             this.data = response
